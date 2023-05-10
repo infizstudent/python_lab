@@ -9,3 +9,6 @@ def test_sum():
     expected_result = 13.9487
     result = round(series_sum(x, precision), precision)
     assert result == expected_result
+
+if __name__ == '__main__':
+    pytest.main()
