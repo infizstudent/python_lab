@@ -1,3 +1,5 @@
+
+
 def is_valid_input(n):
     if n % 1 != 0:
         return False
@@ -10,6 +12,7 @@ def count_digits(n):
         count += 1
         n //= 10
     return count
+
 
 if __name__ == '__main__':
     try:

@@ -11,3 +11,6 @@ from task_5_3 import calculate_square_root
 def test_calculate_square_root(a, x, expected):
     result = calculate_square_root(a, x)
     assert result == expected
+
+if __name__ == '__main__':
+    pytest.main()
