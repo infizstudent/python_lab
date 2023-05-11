@@ -1,4 +1,3 @@
-import math
 import pytest
 from task_5_1 import series_sum
 
