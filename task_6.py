@@ -10,12 +10,11 @@ def connect_to_database():
     return conn
 
 
-def download_book(url):
-    conn = connect_to_database()
+def download_book(url, conn):
     r = requests.get(url)
     content = r.content.decode('utf-8')
-    conn.execute("INSERT INTO books (title, content) VALUES (?, ?)",
-                 ("The Life and Adventures of Robinson Crusoe", content))
+    conn.execute('INSERT INTO books (title, content) VALUES (?, ?)',
+                 ('The Life and Adventures of Robinson Crusoe', content))
     conn.close()
     return content
 
@@ -28,7 +27,7 @@ def extract_chapters(content):
 
 if __name__ == "__main__":
     conn = connect_to_database()
-    content = download_book("https://www.gutenberg.org/files/521/521-0.txt")
+    content = download_book("https://www.gutenberg.org/files/521/521-0.txt", conn)
     extract_chapters(content)
     conn.close()
 
