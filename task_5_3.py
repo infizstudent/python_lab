@@ -1,4 +1,13 @@
-from unit import get_input
+from utils import validate_input
+
+
+def validate_positive_number():
+    while True:
+        a = validate_input()
+        if a > 0:
+            return a
+        else:
+            print('Invalid input, please enter a positive number.')
 
 
 def calculate_square_root(a: float, x: float, epsilon: float = 0.0001) -> float:
@@ -10,6 +19,7 @@ def calculate_square_root(a: float, x: float, epsilon: float = 0.0001) -> float:
 
 
 if __name__ == '__main__':
-    a, x = get_input()
+    a = validate_positive_number()
+    x = validate_positive_number()
     square_root = calculate_square_root(a, x)
     print(f'The square root of {a} is {square_root}')
