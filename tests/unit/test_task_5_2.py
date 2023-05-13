@@ -6,5 +6,3 @@ def test_count_digits():
     assert count_digits(12345) == 5
     assert count_digits(-987654321) == 9
 
-if __name__ == '__main__':
-    pytest.main()

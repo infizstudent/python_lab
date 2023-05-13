@@ -1,9 +1,8 @@
 import math
 
-precision = 4
+PRECISION = 4
 
-
-def series_sum(x, precision):
+def calculate_series_sum(x, precision):
     sum = 0
     term = 1
     n = 0
@@ -11,9 +10,9 @@ def series_sum(x, precision):
         term = 2 ** n * math.factorial(n) / n ** n
         sum += term
         n += 1
-    return sum
+    return round(sum, precision)
 
 
-if __name__ == "__main__":
-    result = series_sum(1, precision)
-    print(round(result, precision))
+if __name__ == '__main__':
+    result = calculate_series_sum(1, PRECISION)
+    print(result)

@@ -1,16 +1,4 @@
-from typing import Tuple
-
-
-def get_input() -> Tuple[float, float]:
-    while True:
-        try:
-            a = float(input('Enter a positive number a: '))
-            x = float(input('Enter any leading positive number x: '))
-            if a <= 0 or x <= 0:
-                raise ValueError
-            return a, x
-        except ValueError:
-            print("Invalid input, please enter a positive number.")
+from unit import get_input
 
 
 def calculate_square_root(a: float, x: float, epsilon: float = 0.0001) -> float:

@@ -16,7 +16,7 @@ def count_digits(n):
 
 if __name__ == '__main__':
     try:
-        n = float(input("Введите число: "))
+        n = float(input("Enter a number: "))
     except ValueError:
         print("Invalid input")
     else:
@@ -24,4 +24,5 @@ if __name__ == '__main__':
             print("Invalid input")
         else:
             digit_count = count_digits(n)
-            print("Количество цифр в числе:", digit_count)
+            print(f"Number of digits in the number: {digit_count}")
+
