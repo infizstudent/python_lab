@@ -2,6 +2,7 @@ import math
 
 PRECISION = 4
 
+
 def calculate_series_sum(x, precision):
     sum = 0
     term = 1

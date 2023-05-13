@@ -1,9 +1,8 @@
-
-
 def is_valid_input(n):
     if n % 1 != 0:
         return False
     return True
+
 
 def count_digits(n):
     n = abs(n)
@@ -25,4 +24,3 @@ if __name__ == '__main__':
         else:
             digit_count = count_digits(n)
             print(f"Number of digits in the number: {digit_count}")
-
