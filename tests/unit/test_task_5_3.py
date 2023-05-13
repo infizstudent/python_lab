@@ -8,9 +8,6 @@ from task_5_3 import calculate_square_root
     (16, 1, 4.0),
     (25, 5, 5.0)
 ])
-
-
 def test_calculate_square_root(a, x, expected):
     result = calculate_square_root(a, x)
     assert result == expected
-
