@@ -1,10 +1,6 @@
 import random
 
 
-def print_choices():
-    print("Choose:\n1. Rock\n2. Paper\n3. Scissors")
-
-
 def determine_winner(user_choice, computer_choice):
     choices = ["rock", "paper", "scissors"]
 
@@ -21,7 +17,7 @@ def determine_winner(user_choice, computer_choice):
 
 if __name__ == "__main__":
     print("Welcome to Rock, Paper, Scissors!")
-    print_choices()
+    print("Choose:\n1. Rock\n2. Paper\n3. Scissors")
 
     user_choice = int(input("Your choice (enter a number from 1 to 3): ")) - 1
 
