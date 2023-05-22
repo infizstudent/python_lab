@@ -1,12 +1,12 @@
-def determine_square_color(position):
-    return 'black' if (ord(position[0]) + int(position[1])) % 2 == 0 else 'white'
+def determine_square_color(chess_position):
+    return 'black' if (ord(chess_position[0]) + int(chess_position[1])) % 2 == 0 else 'white'
 
 
-def validate_input(position):
-    return len(position) == 2 and \
-           position[0] in 'abcdefgh' and \
-           position[1].isdigit() and \
-           1 <= int(position[1]) <= 8
+def validate_input(chess_position):
+    return len(chess_position) == 2 and \
+           chess_position[0] in 'abcdefgh' and \
+           chess_position[1].isdigit() and \
+           1 <= int(chess_position[1]) <= 8
 
 
 if __name__ == '__main__':

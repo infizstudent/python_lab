@@ -18,5 +18,5 @@ def print_days_in_month(m_name):
 
 
 if __name__ == '__main__':
-    month_name = input('Enter month name: ').strip()
+    month_name = input('Enter month name: ')
     print_days_in_month(month_name)

@@ -7,10 +7,11 @@ def binary_to_decimal(binary):
 
 
 def validate_binary_input(binary):
-    for digit in binary:
-        if digit not in '01':
-            return False
-    return True
+    try:
+        decimal = int(binary, 2)
+        return decimal
+    except ValueError:
+        print('Error: Invalid binary number entered')
 
 
 def process_choice(choice):
@@ -21,7 +22,7 @@ def process_choice(choice):
 
     elif choice == '2':
         binary_number = input('Enter a binary number: ')
-        if validate_binary_input(binary_number):
+        if validate_binary_input(binary_number):  # need to remove duplicate validate
             decimal_number = binary_to_decimal(binary_number)
             print(f'{binary_number} in Binary is {decimal_number} in Decimal.')
         else:

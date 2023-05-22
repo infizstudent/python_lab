@@ -1,7 +1,7 @@
 import random
 
 
-def determine_winner(user_choice, computer_choice):
+def determine_winner(user_choice, computer_choice):  # rename variables
     choices = ["rock", "paper", "scissors"]
 
     print(f"You chose: {choices[user_choice]}")
