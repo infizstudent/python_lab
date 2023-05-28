@@ -10,7 +10,8 @@ class RestartButton(ButtonBehavior, Label):
         self.text = 'Restart'
         self.size_hint = (None, None)
         self.size = (100, 50)
-        self.pos_hint = {'center_x': 0.5, 'y': 0.1}  # Размещаем кнопку по центру по горизонтали и ближе к нижней границе экрана
+        self.pos_hint = {'center_x': 0.5,
+                         'y': 0.1}
         self.bind(on_release=self.restart_game)
 
     def restart_game(self, *args):

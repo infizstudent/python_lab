@@ -1,17 +1,11 @@
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 from kivy.uix.popup import Popup
-from kivy.uix.button import ButtonBehavior
 from kivy.uix.label import Label
-from kivy.core.window import Window
-from kivy.lang import Builder
-from kivy.uix.image import Image
 import random
 
 
 class MinesweeperGrid(GridLayout):
-    def build(self):
-        Builder.load_file('styles.kv')
     def __init__(self, **kwargs):
         super(MinesweeperGrid, self).__init__(**kwargs)
         self.cols = 10
@@ -25,7 +19,7 @@ class MinesweeperGrid(GridLayout):
         self.generate_mines()
         self.create_grid_buttons()
 
-        self.padding = [20, 100, 20, 20]  # Добавляем отступы
+        self.padding = [20, 40, 20, 20]
 
     def generate_mines(self):
         self.mine_positions = random.sample(range(self.cols * self.rows), self.mine_count)
@@ -37,8 +31,6 @@ class MinesweeperGrid(GridLayout):
             button.bind(on_touch_down=self.on_button_touch_down)
             self.button_grid.append(button)
             self.add_widget(button)
-
-            
 
     def on_button_release(self, button):
         if self.game_over:
@@ -127,7 +119,7 @@ class MinesweeperGrid(GridLayout):
                 button.disabled = True
 
     def check_victory(self):
-        if len(self.revealed_cells) + len(self.flagged_cells) == self.cols * self.rows:
+        if len(self.revealed_cells) == self.cols * self.rows - self.mine_count:
             self.show_victory_popup()
 
     def show_victory_popup(self):
