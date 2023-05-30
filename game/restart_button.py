@@ -1,6 +1,5 @@
 from kivy.uix.button import ButtonBehavior
 from kivy.uix.label import Label
-from kivy.uix.button import ButtonBehavior
 
 
 class RestartButton(ButtonBehavior, Label):

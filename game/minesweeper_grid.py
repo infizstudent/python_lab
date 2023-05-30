@@ -6,9 +6,16 @@ from kivy.uix.image import Image
 import random
 
 
+def show_victory_popup():
+    content = Label(text='You Win!', font_size=24)
+    popup = Popup(title='Congratulations', content=content, size_hint=(0.8, 0.4), size=(300, 200))
+    popup.open()
+
+
 class MinesweeperGrid(GridLayout):
     def __init__(self, **kwargs):
         super(MinesweeperGrid, self).__init__(**kwargs)
+        self.mine_positions = None
         self.cols = 10
         self.rows = 10
         self.mine_count = 10
@@ -110,12 +117,7 @@ class MinesweeperGrid(GridLayout):
 
     def check_victory(self):
         if len(self.revealed_cells) == self.cols * self.rows - self.mine_count:
-            self.show_victory_popup()
-
-    def show_victory_popup(self):
-        content = Label(text='You Win!', font_size=24)
-        popup = Popup(title='Congratulations', content=content, size_hint=(0.8, 0.4), size=(300, 200))
-        popup.open()
+            show_victory_popup()
 
     def restart_game(self, *args):
         self.clear_widgets()
