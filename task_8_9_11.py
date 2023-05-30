@@ -1,37 +1,37 @@
-def decimal_to_binary(decimal):
-    return bin(decimal)[2:]
-
-
-def binary_to_decimal(binary):
-    return int(binary, 2)
+def validate_decimal_input(decimal):
+    if not isinstance(decimal, int) or decimal < 0:
+        raise ValueError("Invalid input. Expected a non-negative integer.")
 
 
 def validate_binary_input(binary):
-    try:
-        decimal = int(binary, 2)
-        return decimal
-    except ValueError:
-        print('Error: Invalid binary number entered')
+    if not isinstance(binary, str) or not set(binary).issubset({'0', '1'}):
+        raise ValueError("Invalid input. Expected a binary string.")
 
 
-def process_choice(choice):
-    if choice == '1':
-        decimal_number = int(input('Enter a decimal number: '))
-        binary_number = decimal_to_binary(decimal_number)
-        print(f'{decimal_number} in Decimal is {binary_number} in Binary.')
+def decimal_to_binary(decimal):
+    validate_decimal_input(decimal)
+    return '0' if decimal == 0 else decimal_to_binary(decimal // 2) + str(decimal % 2)
 
-    elif choice == '2':
-        binary_number = input('Enter a binary number: ')
-        if validate_binary_input(binary_number):  # need to remove duplicate validate
-            decimal_number = binary_to_decimal(binary_number)
-            print(f'{binary_number} in Binary is {decimal_number} in Decimal.')
-        else:
-            print('Invalid binary number.')
 
-    else:
-        print('Invalid choice.')
+def binary_to_decimal(binary):
+    validate_binary_input(binary)
+    return sum(int(binary[i]) * (2 ** (len(binary) - i - 1))
+               for i in range(len(binary)))
 
 
 if __name__ == '__main__':
-    choice = input('Select an option (1 - Decimal to Binary, 2 - Binary to Decimal): ')
-    process_choice(choice)
+    try:
+        decimal_number = int(input('Enter a decimal number: '))
+        validate_decimal_input(decimal_number)
+        binary_number = decimal_to_binary(decimal_number)
+        print(f'{decimal_number} in Decimal is {binary_number} in Binary.')
+    except ValueError as e:
+        print(f"Error: {str(e)}")
+
+    try:
+        binary_number = input('Enter a binary number: ')
+        validate_binary_input(binary_number)
+        decimal_number = binary_to_decimal(binary_number)
+        print(f'{binary_number} in Binary is {decimal_number} in Decimal.')
+    except ValueError as e:
+        print(f"Error: {str(e)}")

@@ -1,13 +1,13 @@
-def validate_input(input_str):  # no handling of negative numbers
+def validate_input(input_str):
     while True:
         try:
             value = int(input_str)
             if value >= 0:
                 return value
-            else:
-                print('Invalid input. Please enter a positive integer.')
+            print('Invalid input. Please enter a positive integer.')
         except ValueError:
             print('Invalid input. Please enter a valid integer.')
+        input_str = input('Enter the year: ')
 
 
 def is_leap_year(number_year):
@@ -15,13 +15,8 @@ def is_leap_year(number_year):
 
 
 if __name__ == '__main__':
-    year_input = input('Enter the year: ')
-
-    if not validate_input(year_input):
-        print('Invalid input. Please enter a valid year.')
+    year = validate_input(input('Enter the year: '))
+    if year:
+        print('Leap year' if is_leap_year(year) else 'Ordinary year')
     else:
-        year = int(year_input)
-        if is_leap_year(year):
-            print('Leap year')
-        else:
-            print('Ordinary year')
+        print('Invalid input. Please enter a valid year.')
